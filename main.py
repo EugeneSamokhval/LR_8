@@ -92,7 +92,7 @@ class DiagonalRep:
 def binary_sum(current_word: list):
     memory = 0
     bin_index = 15
-    while bin_index > 10:
+    while bin_index > 11:
         if (current_word[bin_index-5] == 1 and current_word[bin_index-9] == 1 and memory == 0) or\
                 (current_word[bin_index-5] == 0 and current_word[bin_index-9] == 1 and memory == 1) or\
                 (current_word[bin_index-5] == 1 and current_word[bin_index-9] == 0 and memory == 1):
@@ -109,6 +109,8 @@ def binary_sum(current_word: list):
         elif current_word[bin_index-5] == 0 and current_word[bin_index-9] == 0 and memory == 0:
             current_word[bin_index] = 0
         bin_index -= 1
+        if memory == 1:
+            current_word[11] = 1
     return current_word
 
 
